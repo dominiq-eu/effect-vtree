@@ -1,0 +1,50 @@
+{
+  "name": "effect-vtree",
+  "version": "0.0.0",
+  "license": "GPL-3.0-only",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./dom": {
+      "types": "./dist/dom/index.d.mts",
+      "import": "./dist/dom/index.mjs"
+    },
+    "./dom/jsx-runtime": {
+      "types": "./dist/dom/jsx-runtime.d.mts",
+      "import": "./dist/dom/jsx-runtime.mjs"
+    },
+    "./dom/jsx-dev-runtime": {
+      "types": "./dist/dom/jsx-dev-runtime.d.mts",
+      "import": "./dist/dom/jsx-dev-runtime.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check": "vp check --fix . && bun run test",
+    "test": "vp pack && vitest run",
+    "build": "vp pack",
+    "clean": "rm -rf node_modules dist",
+    "prepack": "bun run build"
+  },
+  "dependencies": {
+    "effect": "3.19.18"
+  },
+  "devDependencies": {
+    "@effect/vitest": "0.27.0",
+    "@types/node": "25.5.0",
+    "jsdom": "29.0.0",
+    "typescript": "5.9.3",
+    "vite-plus": "0.1.22",
+    "vitest": "4.1.6"
+  },
+  "packageManager": "bun@1.3.11"
+}

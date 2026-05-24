@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.deno.com)",
+      "WebFetch(domain:effect.website)",
+      "WebFetch(domain:jsr.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(deno doc:*)"
+    ]
+  }
+}

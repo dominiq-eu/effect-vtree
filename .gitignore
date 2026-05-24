@@ -1,0 +1,23 @@
+.jj/
+
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# test and coverage output
+coverage/
+.tmp/
+
+# logs
+*.log
+
+# local env overrides
+.env
+.env.*
+
+# editor and OS artifacts
+.DS_Store
+.idea/
+.vscode/
