@@ -1,20 +1,25 @@
 # effect-vtree
 
-`effect-vtree` is an Effect-native virtual tree reconciler package for generic
-view rendering and DOM targets.
+`effect-vtree` is an Effect-native generic virtual tree reconciler.
 
 It is inspired by [Snabbdom](https://github.com/snabbdom/snabbdom) and is an
-attempted reimplementation of Snabbdom's virtual-DOM ideas for the Effect-TS
-ecosystem: pure virtual tree values, explicit reconciliation, and an Effect-based
-DOM patching boundary.
+attempted reimplementation of Snabbdom's virtual-tree reconciliation ideas for
+the Effect-TS ecosystem: pure virtual tree values, explicit reconciliation, and
+Effect-based patching boundaries.
+
+DOM rendering is one target shipped by this package, together with a JSX runtime
+for authoring DOM trees. The core package is not limited to views: it provides a
+generic reconciler model that can drive any target capable of interpreting
+insert, update, move, and remove operations.
 
 ## Features
 
 - Generic virtual tree node contracts
 - Reconciler builder API
-- DOM reconciler implementation
-- JSX runtime for DOM views
-- Package-generic rendering boundary for higher-level runtimes
+- Target-agnostic reconciliation operations
+- DOM reconciler implementation as one concrete target
+- JSX runtime for DOM tree authoring
+- Package-generic boundary for higher-level runtimes
 
 ## Entrypoints
 
@@ -22,12 +27,6 @@ DOM patching boundary.
 - `effect-vtree/dom` - DOM reconciler and DOM JSX factories
 - `effect-vtree/dom/jsx-runtime` - JSX runtime
 - `effect-vtree/dom/jsx-dev-runtime` - dev JSX runtime
-
-## Package Rules
-
-- Runtime code imports from package entrypoints only.
-- Do not import internal `src/*` paths from outside the package.
-- Keep the package generic; do not add product-specific identifiers or services.
 
 ## Examples
 
@@ -48,24 +47,6 @@ bunx vite examples/counter
 
 Each example has separate `plain.html` and `jsx.html` pages so the raw VTree and
 JSX versions stay easy to compare.
-
-## Development
-
-```bash
-bun run check
-bun run test
-bun run build
-```
-
-`bun run test` intentionally uses Vitest directly because `@effect/vitest` is a
-Vitest peer dependency. Vite+ still owns formatting, linting, and packaging
-through `vp check` and `vp pack`.
-
-## Source of Truth
-
-- Requirements: `docs/PRD.md`
-- Package rules: `AGENTS.md`
-- Tests: `tests/`
 
 ## License
 
