@@ -8,9 +8,11 @@ examples:
 - [SVG](./svg/) adapts Snabbdom's SVG example with plain VTree and JSX sources.
 - [Keyed reorder](./reorder/) adapts Snabbdom's reorder-animation idea without
   transitions.
+- [Transitions](./transitions/) adapts Snabbdom's hero/carousel-style animation
+  ideas with SVG attribute updates and browser CSS transitions.
 
-Advanced hero/carousel-style transition examples are deferred; see
-[ADVANCED-TRANSITIONS.md](./ADVANCED-TRANSITIONS.md).
+See [ADVANCED-TRANSITIONS.md](./ADVANCED-TRANSITIONS.md) for the transition
+example boundary.
 
 Run examples from the repository root with Vite:
 
@@ -18,6 +20,7 @@ Run examples from the repository root with Vite:
 bunx vite examples/counter
 bunx vite examples/svg
 bunx vite examples/reorder
+bunx vite examples/transitions
 ```
 
 Then open `/plain.html` or `/jsx.html` for the example you started.

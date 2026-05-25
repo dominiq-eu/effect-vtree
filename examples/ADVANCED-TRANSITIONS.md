@@ -1,27 +1,24 @@
-# Advanced transition examples decision
+# Advanced transition example
 
-Decision: advanced transition examples are **deferred**.
+Advanced transition behavior is demonstrated in
+[`examples/transitions`](./transitions/).
 
-Reviewed Snabbdom examples:
+The example is inspired by Snabbdom's animation-oriented examples:
 
 - hero: <https://github.com/snabbdom/snabbdom/tree/master/examples/hero>
 - carousel-svg:
   <https://github.com/snabbdom/snabbdom/tree/master/examples/carousel-svg>
 
-Both examples are useful references, but they lean on transition-oriented
-behavior that is not part of the current `effect-vtree` DOM reconciler example
-surface. The hero example depends on coordinated enter/leave-style movement
-between old and new nodes. The carousel SVG example combines SVG updates with
-animation-style behavior. Adapting either now would make the examples about
-transition/module behavior rather than the core `VTreeNode` and
-`patch({ current, desired })` interface.
+Unlike Snabbdom's hero example, this package currently does not expose a
+transition hook/module API. The example therefore keeps the boundary explicit:
+`effect-vtree` reconciles the old and desired SVG trees through the DOM target,
+while ordinary browser CSS transitions animate changed attributes such as
+position, radius, and opacity.
 
-The current DOM reconciler has attribute and event module behavior, plus keyed
-moves, but no documented transition module contract. Until such a contract
-exists, examples should not imply that advanced transitions are a supported,
-clean public capability.
+Run from the repository root:
 
-Future contributors should prefer small examples that demonstrate behavior
-already supported by the DOM reconciler. If transition examples are revisited,
-first add a narrow implementation issue for a transition/module API and a
-minimal example that proves one behavior end-to-end.
+```sh
+bunx vite examples/transitions
+```
+
+Then open `/plain.html` or `/jsx.html`.

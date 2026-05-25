@@ -13,6 +13,7 @@ describe("examples documentation", () => {
     expect(readme).toContain("bunx vite examples/counter")
     expect(readme).toContain("bunx vite examples/svg")
     expect(readme).toContain("bunx vite examples/reorder")
+    expect(readme).toContain("bunx vite examples/transitions")
     expect(readme).toContain("Snabbdom")
     expect(readme).toContain("patch(vnode, newVnode)")
     expect(readme).toContain("patch({ current, desired })")
@@ -28,6 +29,12 @@ describe("examples documentation", () => {
     )
     expect(read("examples/reorder/README.md")).toContain(
       "https://github.com/snabbdom/snabbdom/tree/master/examples/reorder-animation",
+    )
+    expect(read("examples/transitions/README.md")).toContain(
+      "https://github.com/snabbdom/snabbdom/tree/master/examples/hero",
+    )
+    expect(read("examples/transitions/README.md")).toContain(
+      "https://github.com/snabbdom/snabbdom/tree/master/examples/carousel-svg",
     )
   })
 })
